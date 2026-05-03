@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetRescue — Реанимационная помощь животным 24/7</title>
+    <meta name="description" content="Экстренная помощь ветеринарным клиникам: донорская кровь, финансирование реанимации, доставка оборудования. Круглосуточно.">
+    <meta property="og:title" content="VetRescue — Реанимационная помощь 24/7">
+    <meta property="og:description" content="Привезём кровь, оплатим реанимацию, доставим оборудование. Для ветеринарных клиник. 24/7.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;
+            --slate-300:#cbd5e1;--slate-400:#94a3b8;--slate-500:#64748b;
+            --slate-600:#475569;--slate-700:#334155;--slate-800:#1e293b;
+            --slate-900:#0f172a;--slate-950:#080e1a;
+            --amber-300:#fcd34d;--amber-400:#fbbf24;--amber-500:#f59e0b;
+            --amber-600:#d97706;--amber-700:#b45309;
+            --red-400:#f87171;--red-500:#ef4444;--red-600:#dc2626;--red-700:#b91c1c;
+            --green-500:#22c55e;--green-600:#16a34a;
+            --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+            --r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:18px;--r-2xl:24px;--r-full:9999px;
+            --shadow-sm:0 1px 3px 0 rgb(0 0 0/.1),0 1px 2px -1px rgb(0 0 0/.1);
+            --shadow-md:0 4px 6px -1px rgb(0 0 0/.1),0 2px 4px -2px rgb(0 0 0/.1);
+            --shadow-lg:0 10px 15px -3px rgb(0 0 0/.1),0 4px 6px -4px rgb(0 0 0/.1);
+            --shadow-xl:0 20px 25px -5px rgb(0 0 0/.15),0 8px 10px -6px rgb(0 0 0/.1);
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font);background:#fff;color:var(--slate-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+        h1{font-size:clamp(2.2rem,6vw,3.75rem);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+        h2{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;letter-spacing:-.025em;line-height:1.2}
+        h3{font-size:1.0625rem;font-weight:600;line-height:1.4}
+        p{line-height:1.7}
+        section[id]{scroll-margin-top:72px}
+
+        /* Layout */
+        .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+        .section{padding:5rem 0}
+        .section-alt{background:var(--slate-50);border-top:1px solid var(--slate-200);border-bottom:1px solid var(--slate-200)}
+
+        /* Header */
+        .header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--slate-200)}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+        .logo{display:flex;align-items:center;gap:.625rem;font-size:1.25rem;font-weight:700;color:var(--slate-900);text-decoration:none}
+        .logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--amber-500),var(--amber-700));border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .logo-icon svg{width:22px;height:22px;fill:white}
+        .header-right{display:flex;align-items:center;gap:.75rem}
+        .header-phone{font-size:.9rem;font-weight:700;color:var(--red-600);text-decoration:none;display:none}
+        @media(min-width:540px){.header-phone{display:block}}
+        .badge-live{display:inline-flex;align-items:center;gap:.4rem;background:var(--slate-900);color:white;font-size:.75rem;font-weight:600;padding:.3rem .8rem;border-radius:var(--r-full);letter-spacing:.03em;white-space:nowrap}
+        .live-dot{width:7px;height:7px;border-radius:50%;background:var(--green-500);animation:blink 2s ease-in-out infinite;flex-shrink:0}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+        /* Buttons */
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--r-lg);font-family:var(--font);font-size:1rem;font-weight:600;line-height:1;cursor:pointer;text-decoration:none;transition:all .15s ease;border:none;white-space:nowrap}
+        .btn svg{width:18px;height:18px;flex-shrink:0;fill:currentColor}
+        .btn-lg{padding:1rem 1.875rem;font-size:1.0625rem;border-radius:var(--r-xl)}
+        .btn-red{background:var(--red-600);color:white;box-shadow:0 4px 14px 0 rgba(220,38,38,.35)}
+        .btn-red:hover{background:var(--red-700);box-shadow:0 6px 20px 0 rgba(220,38,38,.45);transform:translateY(-1px)}
+        .btn-ghost{background:rgba(255,255,255,.12);color:white;border:1.5px solid rgba(255,255,255,.25)}
+        .btn-ghost:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.45)}
+        .btn-outline{background:transparent;color:var(--slate-700);border:1.5px solid var(--slate-300)}
+        .btn-outline:hover{background:var(--slate-50);border-color:var(--slate-400)}
+
+        /* Pulse ring on primary CTA */
+        .btn-pulse{position:relative;overflow:visible}
+        .btn-pulse::after{content:'';position:absolute;inset:-5px;border:2.5px solid var(--red-500);border-radius:var(--r-xl);animation:pulse-ring 2.2s ease-out infinite;pointer-events:none}
+        @keyframes pulse-ring{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(1.18);opacity:0}}
+
+        /* Hero */
+        .hero{background:var(--slate-900);color:white;position:relative;overflow:hidden;padding:6rem 0 5rem}
+        .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% -5%,rgba(180,83,9,.32) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 90% 60%,rgba(99,102,241,.1) 0%,transparent 55%)}
+        .hero-paws{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+        .hero-paw{position:absolute;opacity:.045;fill:white}
+        .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:3.5rem;align-items:center}
+        @media(min-width:900px){.hero-inner{grid-template-columns:1.1fr .9fr}}
+        .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:var(--amber-300);font-size:.8125rem;font-weight:600;padding:.375rem .875rem;border-radius:var(--r-full);margin-bottom:1.25rem}
+        .hero h1{color:white;margin-bottom:1.25rem}
+        .hero h1 em{color:var(--amber-400);font-style:normal}
+        .hero-desc{font-size:1.0625rem;color:var(--slate-300);margin-bottom:2.5rem;max-width:500px}
+        .hero-ctas{display:flex;flex-wrap:wrap;gap:.875rem;margin-bottom:2rem}
+        .hero-hint{font-size:.8125rem;color:var(--slate-500);display:flex;align-items:center;gap:.375rem}
+        .hero-hint svg{width:14px;height:14px;fill:var(--slate-500);flex-shrink:0}
+
+        /* Hero card */
+        .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:var(--r-2xl);padding:1.75rem;width:100%;max-width:380px;margin:0 auto}
+        .hero-card-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-400);margin-bottom:1rem}
+        .pills{display:grid;grid-template-columns:1fr 1fr;gap:.625rem}
+        .pill{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:.6rem .75rem;font-size:.8rem;font-weight:500;color:white}
+        .pill-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+        .d-red{background:var(--red-500)}
+        .d-amber{background:var(--amber-400)}
+        .d-blue{background:#60a5fa}
+        .d-green{background:var(--green-500)}
+        .d-purple{background:#a78bfa}
+        .d-pink{background:#f472b6}
+        .hero-stats{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);margin-top:1.25rem;padding-top:1.25rem}
+        .hstat{text-align:center}
+        .hstat-n{font-size:1.375rem;font-weight:800;color:var(--amber-400);line-height:1}
+        .hstat-l{font-size:.65rem;color:var(--slate-400);margin-top:.2rem}
+
+        /* Section heading */
+        .sec-label{display:inline-block;font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-600);margin-bottom:.625rem}
+        .sec-head{text-align:center;margin-bottom:3rem}
+        .sec-head p{color:var(--slate-500);font-size:1.0625rem;margin-top:.75rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+        /* Services */
+        .services-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+        @media(min-width:600px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(min-width:1024px){.services-grid{grid-template-columns:repeat(3,1fr)}}
+        .scard{background:white;border:1px solid var(--slate-200);border-radius:var(--r-xl);padding:1.5rem;transition:border-color .2s,box-shadow .2s,transform .2s}
+        .scard:hover{border-color:#fed7aa;box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+        .sicon{width:48px;height:48px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;flex-shrink:0}
+        .sicon svg{width:26px;height:26px;fill:currentColor}
+        .i-red{background:#fef2f2;color:var(--red-600)}
+        .i-amber{background:#fffbeb;color:var(--amber-600)}
+        .i-blue{background:#eff6ff;color:#2563eb}
+        .i-green{background:#f0fdf4;color:var(--green-600)}
+        .i-purple{background:#faf5ff;color:#7c3aed}
+        .i-pink{background:#fdf2f8;color:#db2777}
+        .scard h3{margin-bottom:.375rem}
+        .scard p{font-size:.875rem;color:var(--slate-500)}
+
+        /* Steps */
+        .steps{display:grid;grid-template-columns:1fr;gap:1.5rem}
+        @media(min-width:768px){.steps{grid-template-columns:repeat(3,1fr)}}
+        .step{background:white;border:1px solid var(--slate-200);border-radius:var(--r-xl);padding:2rem 1.5rem;text-align:center}
+        .step-num{width:56px;height:56px;background:var(--slate-900);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:800;margin:0 auto 1.25rem}
+        .step h3{margin-bottom:.5rem}
+        .step p{font-size:.875rem;color:var(--slate-500)}
+
+        /* Trust */
+        .trust-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+        @media(min-width:900px){.trust-grid{grid-template-columns:1fr 1fr}}
+        .trust-list{display:flex;flex-direction:column;gap:1.375rem}
+        .titem{display:flex;gap:1rem;align-items:flex-start}
+        .tcheck{width:24px;height:24px;background:var(--green-500);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem}
+        .tcheck svg{width:14px;height:14px;fill:white}
+        .titem strong{display:block;margin-bottom:.2rem}
+        .titem span{font-size:.875rem;color:var(--slate-500)}
+        .stats-card{background:var(--slate-900);border-radius:var(--r-2xl);padding:2.5rem;color:white;box-shadow:var(--shadow-xl)}
+        .stats-card h3{color:white;margin-bottom:.25rem}
+        .stats-card > p{color:var(--slate-400);font-size:.875rem;margin-bottom:1.75rem}
+        .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+        .sbox{text-align:center}
+        .sbox-n{font-size:2.25rem;font-weight:800;color:var(--amber-400);line-height:1}
+        .sbox-l{font-size:.8rem;color:var(--slate-400);margin-top:.375rem;line-height:1.4}
+
+        /* Contact */
+        .contact-section{background:linear-gradient(150deg,var(--slate-950) 0%,var(--slate-800) 100%);position:relative;overflow:hidden}
+        .contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(180,83,9,.2) 0%,transparent 60%)}
+        .contact-inner{position:relative;z-index:1;text-align:center}
+        .contact-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.28);color:var(--amber-300);font-size:.8rem;font-weight:600;padding:.35rem .875rem;border-radius:var(--r-full);margin-bottom:1.5rem}
+        .contact-inner h2{color:white;margin-bottom:.875rem}
+        .contact-inner > p{color:var(--slate-300);font-size:1.0625rem;margin-bottom:2.5rem}
+        .phone-big{font-size:clamp(2rem,6vw,3.25rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.375rem}
+        .phone-big a{color:white;text-decoration:none;transition:color .2s}
+        .phone-big a:hover{color:var(--amber-400)}
+        .phone-tap{font-size:.8125rem;color:var(--slate-500);margin-bottom:2.5rem}
+        .msg-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+        .msg-btn{display:flex;align-items:center;gap:.625rem;padding:.75rem 1.5rem;border-radius:var(--r-full);font-size:.9375rem;font-weight:600;text-decoration:none;transition:all .2s}
+        .msg-btn svg{width:22px;height:22px;fill:white}
+        .m-wa{background:#25D366;color:white}.m-wa:hover{background:#1fb855;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
+        .m-tg{background:#2AABEE;color:white}.m-tg:hover{background:#20a0e4;transform:translateY(-2px);box-shadow:0 6px 20px rgba(42,171,238,.35)}
+        .m-vi{background:#7360F2;color:white}.m-vi:hover{background:#6351e8;transform:translateY(-2px);box-shadow:0 6px 20px rgba(115,96,242,.35)}
+        .copy-btn{background:none;border:1px solid var(--slate-700);color:var(--slate-400);padding:.5rem 1.25rem;border-radius:var(--r-full);font-size:.8125rem;font-weight:500;cursor:pointer;font-family:var(--font);transition:all .2s;display:inline-flex;align-items:center;gap:.375rem;margin-right:.75rem}
+        .copy-btn svg{width:14px;height:14px;fill:currentColor}
+        .copy-btn:hover{border-color:var(--slate-400);color:white}
+        .contact-email{color:var(--slate-500);font-size:.875rem;text-decoration:underline;vertical-align:middle}
+        .contact-email:hover{color:var(--slate-300)}
+        .save-hint{display:inline-block;font-size:.875rem;color:var(--slate-500);margin-top:2rem;padding:.875rem 1.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-lg)}
+
+        /* Footer */
+        .footer{background:var(--slate-950);color:var(--slate-400);padding:1.75rem 0;border-top:1px solid rgba(255,255,255,.06)}
+        .footer-inner{display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center}
+        @media(min-width:640px){.footer-inner{flex-direction:row;justify-content:space-between;text-align:left}}
+        .footer-logo{display:flex;align-items:center;gap:.5rem;font-weight:600;color:var(--slate-300);text-decoration:none}
+        .footer-logo .logo-icon{width:28px;height:28px;border-radius:var(--r-sm)}
+        .footer-logo .logo-icon svg{width:16px;height:16px}
+        .footer-links{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center}
+        .footer-links a{color:var(--slate-500);text-decoration:none;font-size:.8125rem;transition:color .2s}
+        .footer-links a:hover{color:var(--slate-300)}
+        .footer-copy{font-size:.75rem;color:var(--slate-600)}
+
+        /* Floating SOS (mobile) */
+        .float-sos{position:fixed;bottom:1.25rem;right:1.25rem;z-index:999;display:none}
+        @media(max-width:580px){.float-sos{display:block}}
+        .float-sos a{display:flex;align-items:center;gap:.5rem;background:var(--red-600);color:white;padding:.875rem 1.25rem;border-radius:var(--r-full);font-size:.9375rem;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(220,38,38,.5)}
+        .float-sos svg{width:18px;height:18px;fill:white}
+
+        /* Responsive */
+        @media(max-width:640px){
+            .section{padding:3.5rem 0}
+            .hero{padding:4rem 0 3.5rem}
+            .hero-ctas{flex-direction:column}
+            .hero-ctas .btn-lg{justify-content:center}
+            .stats-card{padding:1.75rem}
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════════════════════════════ -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <ellipse cx="12" cy="15.5" rx="5.5" ry="4.5"/>
+                    <ellipse cx="5.5" cy="11" rx="2.5" ry="3.2"/>
+                    <ellipse cx="9.2" cy="7.5" rx="2.5" ry="3.2"/>
+                    <ellipse cx="14.8" cy="7.5" rx="2.5" ry="3.2"/>
+                    <ellipse cx="18.5" cy="11" rx="2.5" ry="3.2"/>
+                </svg>
+            </div>
+            VetRescue
+        </a>
+        <div class="header-right">
+            <a href="tel:+74951234567" class="header-phone" id="headerPhone">+7 (495) 123-45-67</a>
+            <div class="badge-live">
+                <span class="live-dot"></span>
+                Работаем 24/7
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════ HERO ══════════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-paws">
+        <svg class="hero-paw" style="width:220px;top:-30px;right:3%;transform:rotate(15deg)" viewBox="0 0 100 85">
+            <ellipse cx="50" cy="58" rx="21" ry="18"/><ellipse cx="21" cy="38" rx="9.5" ry="12.5"/>
+            <ellipse cx="37" cy="27" rx="9.5" ry="12.5"/><ellipse cx="63" cy="27" rx="9.5" ry="12.5"/>
+            <ellipse cx="79" cy="38" rx="9.5" ry="12.5"/>
+        </svg>
+        <svg class="hero-paw" style="width:130px;bottom:8%;left:1%;transform:rotate(-10deg)" viewBox="0 0 100 85">
+            <ellipse cx="50" cy="58" rx="21" ry="18"/><ellipse cx="21" cy="38" rx="9.5" ry="12.5"/>
+            <ellipse cx="37" cy="27" rx="9.5" ry="12.5"/><ellipse cx="63" cy="27" rx="9.5" ry="12.5"/>
+            <ellipse cx="79" cy="38" rx="9.5" ry="12.5"/>
+        </svg>
+        <svg class="hero-paw" style="width:80px;top:40%;right:48%;opacity:.025" viewBox="0 0 100 85">
+            <ellipse cx="50" cy="58" rx="21" ry="18"/><ellipse cx="21" cy="38" rx="9.5" ry="12.5"/>
+            <ellipse cx="37" cy="27" rx="9.5" ry="12.5"/><ellipse cx="63" cy="27" rx="9.5" ry="12.5"/>
+            <ellipse cx="79" cy="38" rx="9.5" ry="12.5"/>
+        </svg>
+    </div>
+    <div class="container">
+        <div class="hero-inner">
+            <div>
+                <div class="hero-eyebrow">
+                    <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+                    Экстренная помощь · Москва и МО
+                </div>
+                <h1>Реанимационная<br>поддержка<br><em>для клиник</em></h1>
+                <p class="hero-desc">
+                    Привезём кровь, оплатим реанимацию, доставим оборудование и препараты. Вы лечите — остальное на нас.
+                </p>
+                <div class="hero-ctas">
+                    <a href="tel:+74951234567" class="btn btn-red btn-lg btn-pulse" id="heroPhone">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        Позвонить сейчас
+                    </a>
+                    <a href="https://wa.me/74951234567" class="btn btn-ghost btn-lg" id="heroWA">
+                        <svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.28-.89-2.43.07-1.15.83-1.7 1.13-1.92.3-.22.65-.27.87-.27.23 0 .46.01.65.01.2.01.47-.08.73.55.27.63.9 2.17.98 2.33.08.16.13.35.02.56-.11.21-.17.35-.32.54-.16.19-.33.42-.48.57-.16.15-.32.32-.14.63.18.3.79 1.31 1.7 2.12 1.17 1.04 2.15 1.36 2.48 1.51.33.15.52.13.71-.08.19-.21.82-.96 1.04-1.29.22-.33.44-.28.71-.17z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 2.01.57 3.89 1.55 5.48L2.2 21.8l4.32-1.35C8.11 21.43 10.01 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.85 0-3.58-.55-5.05-1.5l-.36-.22-3.03.95.95-3.03-.22-.36C3.55 15.58 3 13.85 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/></svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://t.me/vetrescue_bot" class="btn btn-ghost btn-lg" id="heroTG">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.2-.04-.29-.02-.12.02-2.07 1.31-5.83 3.84-.55.37-1.05.56-1.5.55-.49-.01-1.44-.28-2.14-.51-.87-.28-1.56-.43-1.5-.95.03-.26.39-.52 1.07-.79 4.16-1.81 6.94-3.01 8.33-3.59 3.98-1.67 4.8-1.96 5.34-1.97.12 0 .39.03.56.17.15.13.19.3.21.41.02.12.04.31.02.48z"/></svg>
+                        Telegram
+                    </a>
+                </div>
+                <div class="hero-hint">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    Сохраните номер — это может спасти жизнь
+                </div>
+            </div>
+
+            <div style="display:flex;justify-content:center">
+                <div class="hero-card">
+                    <p class="hero-card-label">Чем помогаем</p>
+                    <div class="pills">
+                        <div class="pill"><span class="pill-dot d-red"></span>Донорская кровь</div>
+                        <div class="pill"><span class="pill-dot d-amber"></span>Финансирование</div>
+                        <div class="pill"><span class="pill-dot d-blue"></span>Препараты</div>
+                        <div class="pill"><span class="pill-dot d-green"></span>Оборудование</div>
+                        <div class="pill"><span class="pill-dot d-purple"></span>Трансфер</div>
+                        <div class="pill"><span class="pill-dot d-pink"></span>Ассистенция</div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hstat">
+                            <div class="hstat-n">24/7</div>
+                            <div class="hstat-l">Режим работы</div>
+                        </div>
+                        <div class="hstat">
+                            <div class="hstat-n">~40</div>
+                            <div class="hstat-l">мин. до клиники</div>
+                        </div>
+                        <div class="hstat">
+                            <div class="hstat-n">0 ₽</div>
+                            <div class="hstat-l">для клиники</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SERVICES ══════════════════════════════════════ -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-label">Что мы делаем</span>
+            <h2>Чем мы помогаем клиникам</h2>
+            <p>Вы сосредоточены на лечении — всё остальное берём на себя</p>
+        </div>
+        <div class="services-grid">
+
+            <div class="scard">
+                <div class="sicon i-red">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 11.5 5 15.5A7 7 0 0 0 19 15.5C19 11.5 12 2 12 2Z"/></svg>
+                </div>
+                <h3>Экстренная донорская кровь</h3>
+                <p>Привезём цельную кровь нужной группы или её компоненты прямо в клинику. Своя база доноров, готовых к срочному выезду.</p>
+            </div>
+
+            <div class="scard">
+                <div class="sicon i-amber">
+                    <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                </div>
+                <h3>Финансирование реанимации</h3>
+                <p>Моментально оплатим неотложные процедуры и операции — если у владельца нет средств прямо сейчас или животное безнадзорное.</p>
+            </div>
+
+            <div class="scard">
+                <div class="sicon i-blue">
+                    <svg viewBox="0 0 24 24"><path d="M4.22 11.29l6.34-6.34c1.87-1.87 4.96-1.87 6.83 0 1.87 1.87 1.87 4.96 0 6.83l-6.34 6.34c-1.87 1.87-4.96 1.87-6.83 0-1.87-1.87-1.87-4.96 0-6.83zm6.94.12l-3.36-3.36-3.22 3.22c-1.09 1.09-1.09 2.87 0 3.96 1.09 1.09 2.87 1.09 3.96 0l2.62-2.62v-1.2zm6.48-1.21c1.09-1.09 1.09-2.87 0-3.96-1.09-1.09-2.87-1.09-3.96 0l-2.52 2.52 3.96 3.96 2.52-2.52z"/></svg>
+                </div>
+                <h3>Редкие препараты и расходники</h3>
+                <p>Найдём и доставим специфические лекарства, антидоты, инфузионные растворы и расходники, которых нет в вашей клинике в данный момент.</p>
+            </div>
+
+            <div class="scard">
+                <div class="sicon i-green">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
+                </div>
+                <h3>Медицинское оборудование</h3>
+                <p>Аппараты ИВЛ, кислородные концентраторы, дефибрилляторы — привезём и поможем настроить, если вашего не хватает или оно занято.</p>
+            </div>
+
+            <div class="scard">
+                <div class="sicon i-purple">
+                    <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-5h14v5zm-8-4h-2v1H7v2h2v1h2v-1h2v-2h-2v-1z"/></svg>
+                </div>
+                <h3>Транспортировка пациентов</h3>
+                <p>Срочный трансфер тяжёлого пациента в специализированный стационар. Экспресс-доставка биоматериала в другую лабораторию.</p>
+            </div>
+
+            <div class="scard">
+                <div class="sicon i-pink">
+                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-1 .05 1.16.84 2 1.87 2 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                </div>
+                <h3>Ассистенция на месте</h3>
+                <p>Пришлём фельдшера-волонтёра для помощи в критический момент — когда не хватает рук ночью, в праздники или при массовом поступлении.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ HOW IT WORKS ══════════════════════════════════ -->
+<section class="section section-alt" id="how">
+    <div class="container">
+        <div class="sec-head">
+            <span class="sec-label">Как это работает</span>
+            <h2>Три шага до помощи</h2>
+            <p>Никакой бюрократии — только быстрое решение проблемы</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Звонок из клиники</h3>
+                <p>Звоните в любое время. Объясняете, что случилось: какое животное, что нужно — кровь, деньги, оборудование или трансфер.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Оценка за минуты</h3>
+                <p>Мы сразу берём задачу в работу: переводим оплату, собираем нужное и выезжаем. Среднее время реакции — 10 минут.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Вы спасаете жизнь</h3>
+                <p>Занимайтесь лечением — мы обеспечиваем всё необходимое. Все пациенты остаются в вашей клинике, мы не забираем клиентов.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ TRUST ═════════════════════════════════════════ -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="trust-grid">
+            <div>
+                <span class="sec-label">Почему мы</span>
+                <h2 style="margin-bottom:1rem">Нам можно доверять<br>в критической ситуации</h2>
+                <p style="color:var(--slate-500);margin-bottom:2rem;font-size:.9375rem">Мы не конкуренты — мы бесплатный инструмент экстренного реагирования, которого раньше не существовало.</p>
+                <div class="trust-list">
+                    <div class="titem">
+                        <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+                        <div><strong>Понимаем специфику изнутри</strong><span>Команда выросла из ветеринарии и знает цену каждой минуты в реанимации.</span></div>
+                    </div>
+                    <div class="titem">
+                        <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+                        <div><strong>Скорость реакции</strong><span>Среднее время прибытия — 30–40 минут по Москве и Московской области.</span></div>
+                    </div>
+                    <div class="titem">
+                        <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+                        <div><strong>Прозрачность и надёжность</strong><span>Делаем то, что обещаем. Всегда на связи, не пропадаем и не подводим.</span></div>
+                    </div>
+                    <div class="titem">
+                        <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+                        <div><strong>Не забираем клиентов</strong><span>Мы не лечим — мы помогаем лечить. Все пациенты остаются в вашей клинике.</span></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="stats-card">
+                    <h3>Уже помогли</h3>
+                    <p>С момента запуска проекта</p>
+                    <div class="stats-grid">
+                        <div class="sbox">
+                            <div class="sbox-n">127</div>
+                            <div class="sbox-l">животных получили помощь</div>
+                        </div>
+                        <div class="sbox">
+                            <div class="sbox-n">34</div>
+                            <div class="sbox-l">выезда за последний месяц</div>
+                        </div>
+                        <div class="sbox">
+                            <div class="sbox-n">12</div>
+                            <div class="sbox-l">оплаченных реанимаций</div>
+                        </div>
+                        <div class="sbox">
+                            <div class="sbox-n">40+</div>
+                            <div class="sbox-l">клиник сохранили наш номер</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CONTACTS ══════════════════════════════════════ -->
+<section class="section contact-section" id="contacts">
+    <div class="contact-bg"></div>
+    <div class="container">
+        <div class="contact-inner">
+            <div class="contact-badge">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+                Работаем круглосуточно, без выходных
+            </div>
+            <h2>Срочно нужна помощь?</h2>
+            <p>Позвоните или напишите прямо сейчас.<br>Не ждите — каждая минута на счету.</p>
+
+            <div class="phone-big">
+                <a href="tel:+74951234567" id="contactPhone">+7 (495) 123-45-67</a>
+            </div>
+            <p class="phone-tap">нажмите, чтобы позвонить</p>
+
+            <div class="msg-btns">
+                <a href="https://wa.me/74951234567" class="msg-btn m-wa" id="contactWA">
+                    <svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.28-.89-2.43.07-1.15.83-1.7 1.13-1.92.3-.22.65-.27.87-.27.23 0 .46.01.65.01.2.01.47-.08.73.55.27.63.9 2.17.98 2.33.08.16.13.35.02.56-.11.21-.17.35-.32.54-.16.19-.33.42-.48.57-.16.15-.32.32-.14.63.18.3.79 1.31 1.7 2.12 1.17 1.04 2.15 1.36 2.48 1.51.33.15.52.13.71-.08.19-.21.82-.96 1.04-1.29.22-.33.44-.28.71-.17z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 2.01.57 3.89 1.55 5.48L2.2 21.8l4.32-1.35C8.11 21.43 10.01 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.85 0-3.58-.55-5.05-1.5l-.36-.22-3.03.95.95-3.03-.22-.36C3.55 15.58 3 13.85 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"/></svg>
+                    WhatsApp
+                </a>
+                <a href="https://t.me/vetrescue_bot" class="msg-btn m-tg" id="contactTG">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.2-.04-.29-.02-.12.02-2.07 1.31-5.83 3.84-.55.37-1.05.56-1.5.55-.49-.01-1.44-.28-2.14-.51-.87-.28-1.56-.43-1.5-.95.03-.26.39-.52 1.07-.79 4.16-1.81 6.94-3.01 8.33-3.59 3.98-1.67 4.8-1.96 5.34-1.97.12 0 .39.03.56.17.15.13.19.3.21.41.02.12.04.31.02.48z"/></svg>
+                    Telegram
+                </a>
+                <a href="viber://chat?number=+74951234567" class="msg-btn m-vi" id="contactViber">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.8 14.21c-.39.85-1.12 1.5-2.03 1.71-.31.07-.64.09-.98.09-2.03 0-3.96-.82-5.36-2.2-1.4-1.38-2.22-3.31-2.22-5.36 0-.34.02-.67.09-.98.21-.91.86-1.64 1.71-2.03.2-.09.42-.13.63-.13.23 0 .46.06.66.19.3.19.5.48.58.8.09.33.27.99.44 1.73.09.38.04.78-.22 1.09l-.35.42c-.12.14-.18.32-.15.5.03.18.12.34.25.46.67.84 1.51 1.52 2.48 2 .2.1.42.14.64.1.22-.04.42-.17.56-.35l.26-.33c.25-.32.69-.44 1.09-.29.73.24 1.39.47 1.72.56.33.09.6.29.78.58.13.21.19.44.19.68-.01.21-.05.44-.14.65z"/></svg>
+                    Viber
+                </a>
+            </div>
+
+            <div>
+                <button class="copy-btn" onclick="copyPhone()">
+                    <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                    <span id="copyText">Скопировать номер</span>
+                </button>
+                <a href="mailto:help@vetrescue.ru" id="contactEmail" class="contact-email">help@vetrescue.ru</a>
+            </div>
+
+            <div class="save-hint">
+                💡 Сохраните этот номер в телефоне клиники прямо сейчас — он может спасти жизнь.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ════════════════════════════════════════ -->
+<footer class="footer">
+    <div class="container footer-inner">
+        <a href="#" class="footer-logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="white">
+                    <ellipse cx="12" cy="15.5" rx="5.5" ry="4.5"/>
+                    <ellipse cx="5.5" cy="11" rx="2.5" ry="3.2"/>
+                    <ellipse cx="9.2" cy="7.5" rx="2.5" ry="3.2"/>
+                    <ellipse cx="14.8" cy="7.5" rx="2.5" ry="3.2"/>
+                    <ellipse cx="18.5" cy="11" rx="2.5" ry="3.2"/>
+                </svg>
+            </div>
+            VetRescue
+        </a>
+        <div class="footer-links">
+            <a href="#services">Услуги</a>
+            <a href="#how">Как работает</a>
+            <a href="#about">О нас</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+        <p class="footer-copy">© 2025 VetRescue · Социальный проект</p>
+    </div>
+</footer>
+
+<!-- Floating SOS button (mobile only) -->
+<div class="float-sos">
+    <a href="tel:+74951234567" id="floatPhone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Позвонить
+    </a>
+</div>
+
+<script>
+    // ═══════════════════════════════════════════════
+    // ЗАМЕНИТЕ СВОИ КОНТАКТЫ ЗДЕСЬ:
+    // ═══════════════════════════════════════════════
+    const CFG = {
+        phone:        '+74951234567',       // Номер для tel: (без пробелов)
+        phoneDisplay: '+7 (495) 123-45-67', // Отображаемый формат
+        whatsapp:     '74951234567',         // Для wa.me/ (без +)
+        telegram:     'vetrescue_bot',       // Ник в Telegram (без @)
+        viber:        '+74951234567',        // Для Viber
+        email:        'help@vetrescue.ru',   // Email
+    };
+    // ═══════════════════════════════════════════════
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => a.href = 'tel:' + CFG.phone);
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.href = 'https://wa.me/' + CFG.whatsapp);
+    document.querySelectorAll('a[href*="t.me"]').forEach(a => a.href = 'https://t.me/' + CFG.telegram);
+    document.querySelectorAll('a[href*="viber://"]').forEach(a => a.href = 'viber://chat?number=' + CFG.viber);
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+        a.href = 'mailto:' + CFG.email;
+        if (a.textContent.trim().includes('@')) a.textContent = CFG.email;
+    });
+    ['headerPhone','contactPhone'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = CFG.phoneDisplay;
+    });
+
+    function copyPhone() {
+        const btn = document.getElementById('copyText');
+        const copy = txt => { btn.textContent = 'Скопировано!'; setTimeout(() => btn.textContent = 'Скопировать номер', 2200); };
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(CFG.phoneDisplay).then(copy).catch(() => fallback(copy));
+        } else { fallback(copy); }
+    }
+    function fallback(cb) {
+        const el = Object.assign(document.createElement('input'), {value: CFG.phoneDisplay});
+        document.body.appendChild(el); el.select(); document.execCommand('copy');
+        document.body.removeChild(el); cb();
+    }
+</script>
+</body>
+</html>
