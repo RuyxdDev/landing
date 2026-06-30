@@ -280,13 +280,16 @@
             </div>
             <form class="notify__form" id="lead-form" novalidate>
               <input type="email" class="field" placeholder="E-mail" id="lead-email">
-              <input type="tel" class="field" placeholder="Телефон" id="lead-phone">
+              <input type="tel" class="field" placeholder="+7 (___) ___-__-__" id="lead-phone">
               <div class="notify__done is-hidden" id="lead-done">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                 Готово! Мы сообщим вам о запуске.
               </div>
-              <button type="submit" class="btn btn--primary btn--lg" id="lead-submit">Сообщить о запуске</button>
-              <p class="notify__legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+              <button type="submit" class="btn btn--primary btn--lg" id="lead-submit" disabled>Сообщить о запуске</button>
+              <button type="button" class="check" id="lead-pd">
+                <span class="check__box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="check__text">Я согласен на обработку персональных данных</span>
+              </button>
             </form>
           </div>
         </div>
@@ -433,7 +436,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="#07130b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </div>
           <h1 class="success__title">Спасибо! Ваша заявка принята</h1>
-          <p class="success__lead">Мы свяжемся с вами в течение <b>1 рабочего дня</b> для уточнения деталей. После запуска маркетплейса мы своевременно уведомим вас и пригласим на полную регистрацию.</p>
+          <p class="success__lead">Мы свяжемся с Вами в течение <b>1 рабочего дня</b> для уточнения деталей. После запуска маркетплейса мы своевременно уведомим Вас и пригласим на полную регистрацию.</p>
         </div>
 
         <div class="docs">
@@ -461,9 +464,9 @@
         </div>
 
         <div class="cta-box">
-          <h3 class="cta-box__h">Готовы двигаться дальше?</h3>
+          <!-- <h3 class="cta-box__h">Готовы двигаться дальше?</h3>
           <p class="cta-box__p">Маркетплейс отправит вам заполненный со своей стороны агентский договор для подписания. Вернуть его можно в отсканированном виде или по ЭДО.</p>
-          <button type="button" class="btn btn--primary btn--lg">Оформить агентский договор</button>
+          <button type="button" class="btn btn--primary btn--lg">Оформить агентский договор</button> -->
           <p class="cta-box__contacts">Остались вопросы? Звоните: <a href="tel:88007770010">8-800-777-00-10</a> · <span class="accent">info@agro-place.ru</span></p>
         </div>
 

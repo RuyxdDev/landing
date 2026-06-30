@@ -119,13 +119,27 @@
   });
 
   /* ---------- форма «Сообщить о запуске» ---------- */
-  var leadForm = $('#lead-form');
+  var leadForm   = $('#lead-form');
+  var leadPdBtn  = $('#lead-pd');
+  var leadSubmit = $('#lead-submit');
+  var leadPdOk   = false;
+
+  if (leadPdBtn) {
+    leadPdBtn.addEventListener('click', function () {
+      leadPdOk = !leadPdOk;
+      leadPdBtn.classList.toggle('is-active', leadPdOk);
+      if (leadSubmit) leadSubmit.disabled = !leadPdOk;
+    });
+  }
+
   if (leadForm) {
     leadForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!leadPdOk) return;
       $('#lead-email').classList.add('is-hidden');
       $('#lead-phone').classList.add('is-hidden');
       $('#lead-submit').classList.add('is-hidden');
+      if (leadPdBtn) leadPdBtn.classList.add('is-hidden');
       $('#lead-done').classList.remove('is-hidden');
     });
   }
